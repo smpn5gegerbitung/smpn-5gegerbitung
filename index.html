@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMP Negeri 5 Gegerbitung — Website Resmi</title>
+<meta name="description" content="Website resmi SMP Negeri 5 Gegerbitung, Kecamatan Gegerbitung, Kabupaten Sukabumi, Jawa Barat." />
+<!-- Tailwind CSS (Play CDN) — cukup untuk website statis seperti ini. -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body, #root { min-height: 100%; }
+  body { margin: 0; }
+</style>
+
+<!-- ============================================================
+     KONFIGURASI SUPABASE (backend data bersama untuk semua pengunjung)
+     Isi SUPABASE_URL dan SUPABASE_ANON_KEY di bawah ini dengan milik
+     proyek Supabase Anda sendiri. Cara mendapatkannya ada di
+     SUPABASE-SETUP.md yang disertakan bersama file ini.
+
+     Jika dibiarkan kosong (""), website tetap berjalan normal, hanya
+     saja data dashboard admin tidak dibagikan ke semua pengunjung
+     (memakai localStorage per-perangkat sebagai cadangan).
+     ============================================================ -->
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+  const SUPABASE_URL = "";       // <-- ISI DI SINI, contoh: "https://abcdefgh.supabase.co"
+  const SUPABASE_ANON_KEY = "";  // <-- ISI DI SINI, contoh: "eyJhbGciOiJIUzI1NiIs..."
+
+  if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+    window.supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("Supabase terhubung — data dashboard admin akan dibagikan ke semua pengunjung.");
+  } else {
+    console.log("Supabase belum dikonfigurasi — memakai penyimpanan lokal per-perangkat.");
+  }
+</script>
+</head>
+<body>
+<div id="root">
+  <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0B3D66;color:#fff;font-family:system-ui,sans-serif;">
+    Memuat SMP Negeri 5 Gegerbitung…
+  </div>
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>
